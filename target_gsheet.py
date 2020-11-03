@@ -170,7 +170,7 @@ def persist_lines(service, spreadsheet, lines):
             schemas[msg.stream] = msg.schema
             key_properties[msg.stream] = msg.key_properties
         else:
-            raise Exception("Unrecognized message {}".format(msg))
+            logger.warning("Unrecognized message {}".format(msg))
 
     return state
 
