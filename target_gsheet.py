@@ -23,6 +23,8 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
+import time
+
 try:
     parser = argparse.ArgumentParser(parents=[tools.argparser])
     parser.add_argument('-c', '--config', help='Config file', required=True)
@@ -103,6 +105,7 @@ def add_sheet(service, spreadsheet_id, title):
 
 
 def append_to_sheet(service, spreadsheet_id, range, values):
+    time.sleep(1)
     return service.spreadsheets().values().append(
         spreadsheetId=spreadsheet_id,
         range=range,
